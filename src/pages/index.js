@@ -1,7 +1,8 @@
-import React from "react"
+import React from "react";
+import Post from '../layouts/post';
 
 const IndexPage = () => (
-  <h1>Predo.js</h1>
-)
+  <Post />
+);
 
-export default IndexPage
+export default IndexPage;

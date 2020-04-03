@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigation from '../components/Navigation/Navigation';
+import Header from '../components/Header/Header';
 import GlobalStyles from '../assets/styles/globalStyles';
 import styled from 'styled-components';
 
@@ -10,7 +10,7 @@ const Content = styled.div`
 const MainLayout = ({ children }) => (
     <>
         <GlobalStyles />
-        <Navigation />
+        <Header />
         <Content>
             { children }
         </Content>

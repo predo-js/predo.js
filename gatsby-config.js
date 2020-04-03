@@ -13,8 +13,8 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Fira Mono`,
-            variants: [`400`, `700`],
+            family: `Raleway`,
+            variants: [`200`, `300`],
           },
           {
             family: `Montserrat`,

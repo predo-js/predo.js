@@ -31,6 +31,12 @@ const Icon = styled.i`
     }
 `;
 
+const ThemeIconWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-self: flex-start;
+`;
+
 const SocialIconsWrapper = styled.div`
     display: flex;
     justify-content: space-evenly;
@@ -44,9 +50,11 @@ const SocialIconsWrapper = styled.div`
 
 const Header = () => (
     <Navbar>
-        <Icon>
-            <FontAwesomeIcon icon={faLightbulb} />
-        </Icon>
+        <ThemeIconWrapper>
+            <Icon>
+                <FontAwesomeIcon icon={faLightbulb} />
+            </Icon>
+        </ThemeIconWrapper>
         <Title>Predo.js</Title>
         <SocialIconsWrapper>
             <Icon>

@@ -5,11 +5,10 @@ import { graphql } from 'gatsby';
 
 const IndexPage = ({ data }) => {
   const { allDatoCmsArticle: { nodes } } = data;
-  const articles = nodes.slice().reverse();
 
   return (
     <>
-      {articles.map(({title, date, articleContent}) => {
+      {nodes.slice(0).reverse().map(({title, date, articleContent}) => {
         let excerptContent = articleContent.map(item => item.paragraphContent);
         return (
           <PostPreview

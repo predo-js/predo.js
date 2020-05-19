@@ -10,6 +10,7 @@ const Navbar = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     padding: 1em 2.5em;
+    user-select: none;
 `;
 
 const Title = styled.h1`
@@ -20,6 +21,7 @@ const Title = styled.h1`
     font-weight: 300;
     font-size: 2.5em;
     text-align: center;
+    color: var(--heading-color);
 `;
 
 const Icon = styled.i`
@@ -35,6 +37,7 @@ const ThemeIconWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-self: flex-start;
+    color: var(--theme-icon-color);
 `;
 
 const SocialIconsWrapper = styled.div`
@@ -42,30 +45,54 @@ const SocialIconsWrapper = styled.div`
     justify-content: space-evenly;
     align-items: center;
     justify-self: flex-end;
+    color: var(--social-icon-color);
 
     &:hover {
         cursor: pointer;
     }
 `;
 
-const Header = () => (
-    <Navbar>
-        <ThemeIconWrapper>
-            <Icon>
-                <FontAwesomeIcon icon={faLightbulb} />
-            </Icon>
-        </ThemeIconWrapper>
-        <Title>Predo.js</Title>
-        <SocialIconsWrapper>
-            <Icon>
-                <FontAwesomeIcon icon={faTwitter} onClick={(e) => {e.preventDefault(); window.open("https://twitter.com/predo_js", "_blank");}}/>
-            </Icon>
-            <Icon>
-                <FontAwesomeIcon icon={faGithub} onClick={(e) => {e.preventDefault(); window.open("https://github.com/predo-js", "_blank")}}/>
-            </Icon>
-        </SocialIconsWrapper>
-    </Navbar>
-);
+const Header = () => {
+
+    if(localStorage.getItem('darkTheme') === 'true') {
+        document.body.className = "dark";
+    }
+    else if(localStorage.getItem("darkTheme") == "false") {
+        document.body.classList.remove("dark");
+    }
+
+    return (
+        <Navbar>
+            <ThemeIconWrapper>
+                <Icon>
+                    <FontAwesomeIcon 
+                        icon={faLightbulb} 
+                        onClick={(e) => {
+                            e.preventDefault();
+                            if(localStorage.getItem('darkTheme') === 'false') {
+                                localStorage.setItem("darkTheme", "true");
+                                document.body.className = "dark";
+                            }
+                            else if(localStorage.getItem("darkTheme") === "true") {
+                                localStorage.setItem("darkTheme", "false");
+                                document.body.classList.remove("dark");
+                            }
+                        }}
+                    />
+                </Icon>
+            </ThemeIconWrapper>
+            <Title>Predo.js</Title>
+            <SocialIconsWrapper>
+                <Icon>
+                    <FontAwesomeIcon icon={faTwitter} onClick={(e) => {e.preventDefault(); window.open("https://twitter.com/predo_js", "_blank");}}/>
+                </Icon>
+                <Icon>
+                    <FontAwesomeIcon icon={faGithub} onClick={(e) => {e.preventDefault(); window.open("https://github.com/predo-js", "_blank")}}/>
+                </Icon>
+            </SocialIconsWrapper>
+        </Navbar>
+    )
+};
 
 
 export default Header;

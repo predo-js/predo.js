@@ -6,12 +6,25 @@ const GlobalStyle = createGlobalStyle`
     }
 
     html, body {
+        --bg: #fff;
+        --text-color: #000;
+        --theme-icon-color: #000;
+        --social-icon-color: #000;
+
         margin: 0;
         padding: 0;
         width: 100%;
-        height: 100vh;
-        background: #fff;
+        color: var(--text-color);
+        background: var(--bg);
         font-family: 'Montserrat';
+        transition: all .2s ease-in-out;
+    }
+
+    body.dark {
+        --bg: #121212;
+        --text-color: #e1f4f3;
+        --theme-icon-color: yellow;
+        --social-icon-color: #fff;
     }
 
     pre {

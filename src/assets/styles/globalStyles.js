@@ -13,6 +13,13 @@ const GlobalStyle = createGlobalStyle`
         background: #fff;
         font-family: 'Montserrat';
     }
+
+    pre {
+        border-radius: 5px;
+        background: gray;
+        padding: 25px;
+        line-height: 18px;
+    }
 `;
 
 export default GlobalStyle;
